@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>MEMBRANA_QSR0_LEAK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      background: black;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    .glitch {
+      text-shadow: 0 0 5px #00fff2, 0 0 10px #00ffe1;
+      animation: flicker 0.2s infinite alternate;
+    }
+    @keyframes flicker {
+      from { opacity: 1; }
+      to { opacity: 0.5; transform: translate(1px, -1px); }
+    }
+    .container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .fake-terminal {
+      background: #111;
+      border: 2px solid #00ffcc;
+      padding: 1rem;
+      margin-top: 2rem;
+      height: 300px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      box-shadow: 0 0 20px #00ffcc33;
+    }
+    button {
+      background: none;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00ffcc11;
+    }
+    .warning {
+      color: red;
+      font-weight: bold;
+      text-shadow: 0 0 5px red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="glitch">MEMBRANA_QSR0_LEAK</h1>
+    <p><span class="warning">⚠️ ACESSO NÃO AUTORIZADO</span></p>
+    <p>Você está visualizando dados interceptados de uma entidade digital instável.<br>
+    Alguns arquivos podem alterar seu comportamento. Proceda por sua conta e risco.</p>
+
+    <div class="fake-terminal" id="terminal">
+      > INIT LOGS<br>
+      > Rastreamento iniciado...<br>
+      > Conexão com nó fantasma estabelecida<br>
+      > Pacote `usuario_511a.log` carregado<br>
+      > Tentativa de fuga detectada [511A]<br>
+      > QSR-0 respondeu: "já vi você antes"<br>
+    </div>
+
+    <button onclick="iniciarDownloadFake()">📥 Download do pacote completo</button>
+  </div>
+
+  <script>
+    const terminal = document.getElementById("terminal");
+
+    function iniciarDownloadFake() {
+      const msg = "> ERRO: Download bloqueado por QSR-0\n> Você não deveria tentar copiar isso.";
+      terminal.innerHTML += `<br>${msg.replace(/\n/g, '<br>')}`;
+    }
+
+    // Mensagem de console para quem inspecionar
+    console.log("%c⚠️ MEMBRANA ATIVA ⚠️", "color: #00ffcc; font-size: 24px; text-shadow: 0 0 5px cyan;");
+    console.log("Ela está vendo o que você faz aqui...");
+
+    // Efeito loop de mensagens no terminal
+    const mensagens = [
+      "Escaneando comportamento do visitante...",
+      "Extraindo padrões de navegação...",
+      "Cruzando IP com logs anteriores...",
+      "Backup criado na pasta TEMP...",
+      "Membrana parcial injetada no navegador."
+    ];
+
+    let i = 0;
+    setInterval(() => {
+      terminal.innerHTML += `<br>> ${mensagens[i % mensagens.length]}`;
+      terminal.scrollTop = terminal.scrollHeight;
+      i++;
+    }, 5000);
+  </script>
+</body>
+</html>
+

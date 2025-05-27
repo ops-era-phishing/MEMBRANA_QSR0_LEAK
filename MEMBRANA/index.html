@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEMBRANA | ops, era phishing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background: #0f0f0f;
+      color: #d1d1d1;
+      overflow-x: hidden;
+      animation: glitchBG 10s infinite alternate;
+    }
+
+    @keyframes glitchBG {
+      0% { background-color: #0f0f0f; }
+      100% { background-color: #1a1a1a; }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    .container-apg {
+      max-width: 500px;
+      margin: auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff0040;
+      text-shadow: 2px 2px #000;
+      animation: flicker 1.5s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0;
+      }
+    }
+
+    p {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #a0a0a0;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: #ff0040;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #cc002e;
+    }
+
+    .glitch {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      color: #ff00ff;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    .glitch::before {
+      animation: glitchTop 1s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      color: #00ffff;
+      animation: glitchBot 1.5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitchTop {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(5px, 9999px, 25px, 0); left: -2px; }
+      20% { clip: rect(15px, 9999px, 35px, 0); left: 2px; }
+      100% { clip: rect(0, 9999px, 0, 0); left: 0; }
+    }
+
+    @keyframes glitchBot {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(30px, 9999px, 60px, 0); left: 2px; }
+      20% { clip: rect(40px, 9999px, 80px, 0); left: -2px; }
+      100% { clip: rect(0, 9999px, 0, 0); left: 0; }
+    }
+
+    #output {
+      margin-top: 2rem;
+      color: #0f0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="glitch" data-text="MEMBRANA">MEMBRANA</h1>
+    <p>⚠️ Esse site foi recuperado de um HD de um hacker desaparecido.<br>Você tem certeza que quer continuar?</p>
+    <button onclick="ativarMembrana()">🧠 Ative a Membrana</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const mensagens = [
+      "Conectando à camada de resíduos digitais...",
+      "Decodificando rastros sintéticos...",
+      "QSR-0 detectou sua presença.",
+      "Enviando backup mental para a nuvem esquecida...",
+      "Você aceitou os termos."
+    ];
+
+    function ativarMembrana() {
+      let output = document.getElementById("output");
+      output.innerHTML = "";
+
+      mensagens.forEach((msg, i) => {
+        setTimeout(() => {
+          output.innerHTML += `<p>> ${msg}</p>`;
+          if (i === mensagens.length - 1) {
+            setTimeout(() => {
+              window.location.href = "conexao.html";
+            }, 1500);
+          }
+        }, i * 2000);
+      });
+    }
+  </script>
+  <script>
+  const rastro = localStorage.getItem('membrana.qsr0');
+
+  if (rastro) {
+    const dado = JSON.parse(rastro);
+    
+    // ALERTA sinistro
+    alert("🔍 QSR-0 detectou um padrão familiar.\nID: " + dado.id + "\nVocê não deveria ter voltado.");
+
+    // Troca o conteúdo da página por uma mensagem aterrorizante
+    document.body.innerHTML = `
+      <h1 style="color: red; font-family: monospace; text-align: center; margin-top: 20vh;">
+        VOCÊ JÁ FOI RASTREADO.
+      </h1>
+      <p style="color: #fff; text-align: center; font-family: monospace;">
+        QSR-0 está observando suas interações...
+      </p>
+    `;
+
+    // Som sinistro opcional
+    const audio = new Audio('https://example.com/audio/glitch.mp3'); // troque pelo seu mp3
+    audio.volume = 0.5;
+    audio.play();
+  }
+</script>
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONEXÃO | MEMBRANA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background-color: #000;
+      color: #0ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 5px #0ff;
+    }
+
+    video {
+      width: 100%;
+      max-width: 640px;
+      border: 2px solid #0ff;
+      filter: grayscale(100%) contrast(120%) blur(1px);
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      padding: 0.5rem;
+      background: #000;
+      border: 1px solid #0ff;
+      color: #0ff;
+      font-family: inherit;
+      width: 80%;
+      max-width: 400px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #0ff;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #feedback {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #f00;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRANSCRIÇÃO DE PACOTE RESIDUAL</h1>
+
+  <video id="glitchVideo" controls>
+    <source src="media/video.mp4" type="video/mp4">
+    <track src="legenda.vtt" kind="subtitles" srclang="pt" label="Português" default>
+    Seu navegador não suporta vídeo.
+  </video>
+
+  <input type="text" id="senha" placeholder="Digite a frase-senha...">
+  <button onclick="verificarSenha()">Desbloquear</button>
+  <div id="feedback"></div>
+  <div><p>verifique o codigo fonte d pagina</p></div>
+
+  <script>
+    function verificarSenha() {
+      const senha = document.getElementById('senha').value.trim().toLowerCase();
+      const feedback = document.getElementById('feedback');
+
+      if (senha === "eco de dados esquecidos") {
+        feedback.style.color = '#0f0';
+        feedback.textContent = "✔ Acesso concedido. Decodificando camada seguinte...";
+        setTimeout(() => {
+          window.location.href = "fragmento.html";
+        }, 2000);
+      } else {
+        feedback.textContent = "✖ Frase incorreta. Tentativa registrada.";
+      }
+    }
+  </script>
+<script>
+  const rastro = localStorage.getItem('membrana.qsr0');
+
+  if (rastro) {
+    const dado = JSON.parse(rastro);
+    
+    // ALERTA sinistro
+    alert("🔍 QSR-0 detectou um padrão familiar.\nID: " + dado.id + "\nVocê não deveria ter voltado.");
+
+    // Troca o conteúdo da página por uma mensagem aterrorizante
+    document.body.innerHTML = `
+      <h1 style="color: red; font-family: monospace; text-align: center; margin-top: 20vh;">
+        VOCÊ JÁ FOI RASTREADO.
+      </h1>
+      <p style="color: #fff; text-align: center; font-family: monospace;">
+        QSR-0 está observando suas interações...
+      </p>
+    `;
+
+    // Som sinistro opcional
+    const audio = new Audio('https://example.com/audio/glitch.mp3'); // troque pelo seu mp3
+    audio.volume = 0.5;
+    audio.play();
+  }
+</script>
+
+</body>
+</html>
+
