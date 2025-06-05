@@ -40,7 +40,7 @@ Não sabemos o que isso significa. Talvez você saiba.
 Esses arquivos podem conter **pistas para outros enigmas espalhados pela web**.  
 Alguns já relataram encontrar conexões com:
 
-- 🌐 [hashphage.html](https://meudominio.com/hashphage.html)  
+- 🌐 [hashphage.html](https://ops-era-phishing/membrana)  
 - 🗂️ `/echo.legacy.br.html`  
 - 🕳️ Fórum Deep: `/paranoicos.html`
 
